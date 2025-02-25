@@ -115,7 +115,7 @@ export default function Navbar () {
                     !user?.email && (
                         <div className="navbar-end ">
                             <Link to={'/login'} className="btn border-0 mr-5 md:text-lg hidden md:inline-flex">Log In</Link>
-                            <Link to={'/signup'} className="btn sm:px-2 md:text-lg rounded-lg border">Create account</Link>
+                            <Link to={'/signup'} className="btn sm:px-2 md:text-lg rounded-lg hover:bg-slate-300 border">Create account</Link>
                         </div>
                     )
                 }
