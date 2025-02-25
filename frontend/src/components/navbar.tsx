@@ -27,18 +27,24 @@ export default function Navbar () {
                     !user?.email && (
                         <div className="navbar-start md:w-[30%]">
                             <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-                            </div>
-                            <ul
-                                tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                <li>
-                                <Link to={'/'}>Home</Link>
-                                </li>
-                                <li><Link to={'/login'}>Log In</Link></li>
-                                <li><Link to={'/blogs'}>Blogs</Link></li>
-                            </ul>
+                                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                                </div>
+                                <ul
+                                    tabIndex={0}
+                                    className="menu menu-sm dropdown-content bg-cyan-300 rounded-lg z-1 mt-3 w-52 p-2 shadow">
+                                    <li className="hover:bg-cyan-950  rounded-lg ">
+                                        <Link className="font-semibold text-[1.0rem] text-slate-800 hover:text-cyan-100" to={'/'}>Home</Link>
+                                    </li>
+
+                                    <li className="hover:bg-cyan-950  rounded-lg ">
+                                        <Link className="font-semibold text-[1.0rem] text-slate-800 hover:text-cyan-100" to={'/login'}>Log In</Link>
+                                    </li>
+
+                                    <li className="hover:bg-cyan-950  rounded-lg hover:text-cyan-100">
+                                        <Link className="font-semibold text-[1.0rem] text-slate-800 hover:text-cyan-100" to={'/blogs'}>Blogs</Link>
+                                    </li>
+                                </ul>
                             </div>
                             <Link to={'/'} className="btn btn-ghost text-lg px-2 md:text-3xl">blog NET</Link>
                         </div>
@@ -85,15 +91,19 @@ export default function Navbar () {
                                     </div>
                                     <ul
                                         tabIndex={0}
-                                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                        <li>
-                                        <a className="justify-between">
-                                            Profile
-                                            <span className="badge">New</span>
-                                        </a>
+                                        className="menu menu-sm dropdown-content rounded-2xl bg-cyan-300 z-1 mt-3 w-52 p-2 shadow">
+                                        <li className="hover:bg-cyan-950  rounded-lg">
+                                            <Link to={''} className="font-semibold text-[1.0rem] text-slate-800 hover:text-cyan-100 justify-between">
+                                                Profile
+                                                <span className="badge">New</span>
+                                            </Link>
                                         </li>
-                                        <li><Link to={'/'}>Settings</Link></li>
-                                        <li><Link onClick={logout} to={'/'}>Logout</Link></li>
+                                        <li className="hover:bg-cyan-950  rounded-lg">
+                                            <Link className="font-semibold text-[1.0rem] text-slate-800 hover:text-cyan-100" to={'/'}>Settings</Link>
+                                        </li>
+                                        <li className="hover:bg-cyan-950  rounded-lg">
+                                            <Link className="font-semibold text-[1.0rem] text-slate-800 hover:text-cyan-100" onClick={logout} to={'/'}>Logout</Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
