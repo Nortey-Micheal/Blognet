@@ -12,7 +12,7 @@ const useAllBlogs = () => {
         setIsLoading(true)
 
         const response = await fetch("http://localhost:5050/api/blogs/load", {
-            method: "POST",
+            method: "GET",
             headers: { "Content-type": "application/json"},
 
         })
