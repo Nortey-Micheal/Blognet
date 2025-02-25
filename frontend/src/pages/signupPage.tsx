@@ -44,7 +44,7 @@ export default function Signup() {
             </form>
             {
                 isLoading && (
-                    <div style={{backgroundImage: "url('/assets/loading')"}} className="h-[400px] absolute top-[1/3] aspect-square "></div>
+                    <div style={{backgroundImage: "url('/assets/loading.gif')", backgroundRepeat: 'no-repeat', backgroundSize: "50% 50%", backgroundPosition: 'center'}} className="h-[400px] bg-cyan-400 absolute top-[1/3] aspect-square "></div>
                 )
             }
         </div>
