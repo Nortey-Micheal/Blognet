@@ -11,12 +11,15 @@ export default function Navbar () {
     const user = useSelector((state:StoreType) => state.user)
 
     useEffect(() => {
-        const userString =  localStorage.getItem("user");
-        if(userString !== null) {
-            const user = JSON.parse(userString);
-            dispatch(setUser(user));
-        }
-    },[])
+        const initiateUser = async () => {
+            const userString = localStorage.getItem("user");
+            if (userString !== null) {
+                const user = JSON.parse(userString);
+                dispatch(setUser(user));
+            }
+        };
+        initiateUser();
+    }, []);
 
     const { logout } = useLogout()
 
@@ -93,7 +96,7 @@ export default function Navbar () {
                                         tabIndex={0}
                                         className="menu menu-sm dropdown-content rounded-2xl bg-cyan-300 z-1 mt-3 w-52 p-2 shadow">
                                         <li className="hover:bg-cyan-950  rounded-lg">
-                                            <Link to={''} className="font-semibold text-[1.0rem] text-slate-800 hover:text-cyan-100 justify-between">
+                                            <Link to={'/profile'} className="font-semibold text-[1.0rem] text-slate-800 hover:text-cyan-100 justify-between">
                                                 Profile
                                                 <span className="badge">New</span>
                                             </Link>

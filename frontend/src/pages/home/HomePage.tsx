@@ -1,9 +1,9 @@
 import { NavLink } from "react-router"
-import Navbar from "../components/navbar"
-import useAllBlogs from "../hooks/blogs/useAllBlogs"
+import Navbar from "../../components/navbar"
+import useAllBlogs from "../../hooks/blogs/useAllBlogs"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { StoreType } from "../redux/store"
+import { StoreType } from "../../redux/store"
 import { formatDistanceToNowStrict, parseISO } from "date-fns"
 
 function HomePage() {
@@ -48,7 +48,7 @@ function HomePage() {
 
             {
                 isLoading && (
-                    <div style={{backgroundImage: "url('/assets/loading.gif')", backgroundRepeat: 'no-repeat', backgroundSize: "50% 50%", backgroundPosition: 'center'}} className="w-[100%] bg-cyan-400  top-[1/3] aspect-square "></div>
+                    <div style={{backgroundImage: "url('/assets/loading.gif')", backgroundRepeat: 'no-repeat', backgroundSize: "50% 50%", backgroundPosition: 'center'}} className="w-[100%] bg-cyan-300  top-[1/3] aspect-square rounded-2xl "></div>
                 )
             }
 

@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router";
-import useLogin from "../hooks/useLogin";
+import useLogin from "../../hooks/useLogin";
 
 export default function Login() {
     
@@ -43,7 +43,7 @@ export default function Login() {
             </form>
             {
                 isLoading && (
-                    <div style={{backgroundImage: "url('/assets/loading.gif')", backgroundRepeat: 'no-repeat', backgroundSize: "50% 50%", backgroundPosition: 'center'}} className="h-[400px] bg-cyan-400 absolute top-[1/3] aspect-square "></div>
+                    <div style={{backgroundImage: "url('/assets/loading.gif')", backgroundRepeat: 'no-repeat', backgroundSize: "50% 50%", backgroundPosition: 'center'}} className="w-[92%] bg-cyan-300 absolute top-[1/3] rounded-2xl aspect-square "></div>
                 )
             }
            

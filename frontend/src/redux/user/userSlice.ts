@@ -5,7 +5,7 @@ interface userState {
     token: string
 }
 
-export type stateType = userState | null 
+type stateType = userState | null 
 
 const initialState: stateType = {} as stateType
 

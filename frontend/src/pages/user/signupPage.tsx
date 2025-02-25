@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router";
-import useSignup from "../hooks/useSignup";
+import useSignup from "../../hooks/useSignup";
 
 export default function Signup() {
     const [email,setEmail] = useState<string>('');
@@ -25,7 +25,7 @@ export default function Signup() {
     return (
         <div style={{backgroundImage: "url('/assets/signup.avif')",backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'}} className="h-dvh min-h-[650px] flex justify-center items-center">
             <form onSubmit={(e) => handleSubmit(e)} className="h-[600px] p-2 rounded-4xl bg-cyan-100 borde max-w-[400px] w-[90vw] mx-auto flex flex-col items-center justify-center" method="post">
-                <legend className="text-5xl mb-20 underline-offset-8 underline font-extrabold text-slate-700">Sign Up</legend>
+                <legend  className="text-5xl mb-20 underline-offset-8 underline font-extrabold text-slate-700">Sign Up</legend>
                 <div className="w-[90%] md:text-2xl mx-aut text-lg flex justify-between">
                     <label className="font-bold text-slate-700" htmlFor="email">Email </label>
                     <input onChange={(e) => setEmail(e.target.value)} className="rounded px-1 w-[70%]" id="email" type="email" />
@@ -44,7 +44,7 @@ export default function Signup() {
             </form>
             {
                 isLoading && (
-                    <div style={{backgroundImage: "url('/assets/loading.gif')", backgroundRepeat: 'no-repeat', backgroundSize: "50% 50%", backgroundPosition: 'center'}} className="h-[400px] bg-cyan-400 absolute top-[1/3] aspect-square "></div>
+                    <div style={{backgroundImage: "url('/assets/loading.gif')", backgroundRepeat: 'no-repeat', backgroundSize: "50% 50%", backgroundPosition: 'center'}} className="w-[92%] bg-cyan-300 absolute rounded-2xl top-[1/3] aspect-square "></div>
                 )
             }
         </div>

@@ -31,7 +31,7 @@ export default function useSignup() {
             setError(null)
 
             //store in localStorage
-            localStorage.setItem('User', user);
+            localStorage.setItem('User', JSON.stringify(user));
 
             dispatch(setUser(user))
         }

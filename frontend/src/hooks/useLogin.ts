@@ -31,7 +31,7 @@ export default function useLogin() {
             setError(null)
 
             //store in localStorage
-            localStorage.setItem('User', user);
+            localStorage.setItem('user', JSON.stringify(user));
 
             dispatch(setUser(user))
         }
