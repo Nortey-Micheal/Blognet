@@ -11,23 +11,35 @@ const useMyBlogs = () => {
     const getMyBlogs = async (email:string) => {
         setIsLoading(true)
 
-        const response = await fetch(`http://localhost:5050/api/myBlogs/${email}`, {
-            method: "GET",
-            headers: { "Content-type": "application/json"},
-
-        })
-
-        const blogs = await response.json();
-
-        if (!response.ok) {
-            setIsLoading(false)
-            setError(blogs.error)
+        if(!email) {
+            console.warn("No Email");
+            return
         }
 
-        if (response.ok) {
+        try {
+            const response = await fetch(`http://localhost:5050/api/blogs/myBlogs/${encodeURIComponent(email)}`, {
+                method: "GET",
+                headers: { "Content-type": "application/json"},
+    
+            })
+
+            console.log(response.status)
+    
+            const blogs = await response.json();
+    
+            if (!response.ok) {
+                setIsLoading(false)
+                setError(blogs.error)
+            }
+    
+            if (response.ok) {
+                setIsLoading(false)
+                setError(null)
+                dispatch(setBlogs(blogs))
+            }
+        } catch (error) {
             setIsLoading(false)
-            setError(null)
-            dispatch(setBlogs(blogs))
+            setError("Failed to fetch blogs")
         }
     }
 

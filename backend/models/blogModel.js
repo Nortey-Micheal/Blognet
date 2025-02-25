@@ -25,13 +25,13 @@ const blogSchema = new mongoose.Schema(
     }
 )
 
-blogSchema.statics.createBlog = async function (title,content,author) {
+blogSchema.statics.createBlog = async function (title,content,author,tags) {
 
-    if (!title || !content || !author ) {
+    if (!title || !content || !author || !tags ) {
         throw new Error("All fields must be filled");
     }
 
-    const blog = await this.create({ title, content, author })
+    const blog = await this.create({ title, content, author , tags})
     
     return blog
 }

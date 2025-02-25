@@ -1,10 +1,10 @@
 import Blog from "../models/blogModel.js"
 
 const createBlog = async (req,res) => {
-    const { title, content, author } = req.body
+    const { title, content, author, tags } = req.body
 
     try {
-        await Blog.createBlog(title,content,author)
+        await Blog.createBlog(title,content,author,tags)
         res.status(201).json({message: "Blog has been created"})
     } catch (error) {
         res.status(500).json({error: error.message})
