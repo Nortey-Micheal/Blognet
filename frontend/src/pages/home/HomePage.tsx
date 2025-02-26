@@ -1,10 +1,10 @@
-import { NavLink } from "react-router"
+import { Link, NavLink } from "react-router"
 import Navbar from "../../components/navbar"
 import useAllBlogs from "../../hooks/blogs/useAllBlogs"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { StoreType } from "../../redux/store"
-import { formatDistanceToNowStrict, parseISO } from "date-fns"
+import { formatDate,  parseISO } from "date-fns"
 
 function HomePage() {
 
@@ -35,14 +35,25 @@ function HomePage() {
           <div>
             {
               blogs.map((blog) => (
-                <div className="mb-5 w-full flex flex-col gap-5 p-4 rounded-2xl bg-slate-200 shadow-xl text-slate-800 max-h-[400px] md:text-[1.2rem]">
-                  <h3 className="text-lg underline decoration-2 font-bold text-center">{blog.title}</h3>
-                  <p className="max-h-[70%] overflow-hidden">{blog.content}</p>
-                  <div className="flex gap justify-between">
-                    <p className="" >By: <span className="hover:underline decoration-2">{blog.author}</span></p>
-                    <p className="underline">{formatDistanceToNowStrict(parseISO(blog.createdAt))} ago</p>
+                <Link to={`/blog/${blog._id}`} key={blog._id} className="mb-5 w-full flex flex-col gap-5 p-4 rounded-2xl bg-slate-200 shadow-xl text-slate-800 max-h-[400px] md:text-[1.2rem] hover:border-2 hover:text-cyan-700 border-cyan-300">
+                  <div className="flex gap-5 items-center ">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      className="w-15 aspect-square rounded-full"
+                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    <div>
+                      <p>{blog.author}</p>
+                      <p>Posted on ({formatDate(parseISO(blog.createdAt), 'do MMM')} )</p>
+                    </div>
                   </div>
-                </div>
+                  <h3 className="text-lg underline decoration-2 font-bold text-cente">{blog.title}</h3>
+                  <div className="flex gap justify-between">
+                    <p>{blog.tags?.split(' ').map(tag => (
+                      <span className="hover:text-cyan-500">{tag} </span>
+                    ))}</p>
+                    
+                  </div>
+                </Link>
               ))
             }
 

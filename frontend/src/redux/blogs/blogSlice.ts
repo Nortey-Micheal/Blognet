@@ -5,7 +5,9 @@ interface BlogState {
     content: string,
     tags: string,
     createdAt: string,
-    author: string
+    updatedAt: string,
+    author: string,
+    _id: string,
 }
 
 const initialState: BlogState[] = [] 

@@ -1,8 +1,9 @@
 import { FormEvent, useState } from "react";
-import Navbar from "../components/navbar";
-import useAddBlogs from "../hooks/blogs/useAddBlog";
+import Navbar from "../../components/navbar";
+import useAddBlogs from "../../hooks/blogs/useAddBlog";
 import { useSelector } from "react-redux";
-import { StoreType } from "../redux/store";
+import { StoreType } from "../../redux/store";
+import { useNavigate } from "react-router";
 
 export default function AddBlog() {
     const [content,setContent] = useState<string>('')
@@ -11,11 +12,18 @@ export default function AddBlog() {
 
     const { AddBlogs, isLoading, error} = useAddBlogs()
     const user = useSelector((state:StoreType) => state.user)
-    const email = user?.email
+    const email = user?.email;
+    const navigate = useNavigate()
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         await AddBlogs(title,content,(email)!,tags)
+        if (error !== null) {
+            setTags('');
+            setTitle('');
+            setContent('');
+            navigate('/');
+        }
     }
     return (
         <div>

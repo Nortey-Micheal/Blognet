@@ -1,28 +1,29 @@
 import { useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { NavLink, useParams } from "react-router";
 import { StoreType } from "../../redux/store";
+import Navbar from "../../components/navbar";
+import { compareAsc, formatDistanceToNow, parseISO } from "date-fns";
 
 export default function Blog() {
     const _id = useParams<{_id:string}>();
     const blogs = useSelector((state:StoreType) => state.blogs)
-    console.log(_id)
+    const user = useSelector((state:StoreType) => state.user)
 
-    console.log(`Finding blog with ID: ${_id._id}`);
-    const currentBlog = blogs.find((blog) => {
-        console.log(`Checking blog ID: ${blog._id}`);
-        return blog._id === _id._id;
-    });
-    console.log(blogs)
-    console.log(`hi: ${currentBlog}`)
+    const currentBlog = blogs.find((blog) =>  blog._id === _id._id);
 
     return(
-        <section>
-            <div>
-                <h2>{currentBlog?.title}</h2>
-            </div>
-        </section>
-    )
-}
+        <>
+            <Navbar />
+           
+            <section className="max-w-[1000px] w-[90vw] mx-auto mt-5 ">
+                 <div>
+                    <NavLink className={'btn border-cyan-400 rounded-3xl mb-5'} to={'/'}>{'< Back'}</NavLink>
+                </div>
+                <div>
+                    <div className="flex">
+                        <img src="" alt="" />
+                        <div>
+                            <p>{user?.email}</p>
                             <div className="flex border">
                                 <p className="underline">{formatDistanceToNow(parseISO((currentBlog?.createdAt)!))} ago</p>
                                 {

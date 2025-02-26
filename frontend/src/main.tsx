@@ -12,7 +12,8 @@ import Top from './pages/home/homeTop.tsx'
 import Login from './pages/user/loginPage.tsx'
 import Signup from './pages/user/signupPage.tsx'
 import Profile from './pages/profile.tsx'
-import AddBlog from './pages/addBlog.tsx'
+import AddBlog from './pages/blogs/addBlog.tsx'
+import Blog from './pages/blogs/blog.tsx'
 
 const router = createBrowserRouter([
   {
@@ -53,7 +54,12 @@ const router = createBrowserRouter([
     path: '/addblog',
     element: <AddBlog />,
     errorElement: <NoPageFound />
-  }
+  },
+  {
+    path: '/blog/:_id',
+    element: <Blog />,
+    errorElement: <NoPageFound />
+  },
 ])
 
 createRoot(document.getElementById('root')!).render(

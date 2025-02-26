@@ -23,21 +23,21 @@ export default function Profile() {
     return (
         <>
             <Navbar />
-            <section className="w-[90vw] mx-auto mt-5">
-                <div>
+            <section className="w-[90vw] max-w-[700px] mx-auto mt-5">
+                <div className="mb-10">
                     <img
                     alt="Tailwind CSS Navbar component"
-                    className="rounded-full"
+                    className="rounded-full max-w-[200px] mx-auto "
                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                     <div className="flex justify-between items-center mt-5">
                         <p>Email: {user?.email}</p>
-                        <Link to={'/addblog'} className={`${blogs.length === 0 ? 'hidden' : ''} btn`}>Add Blog</Link>
+                        <Link to={'/addblog'} className={`${blogs.length === 0 ? 'hidden' : ''} btn border-cyan-400 rounded-2xl`}>Add Blog</Link>
                     </div>
                 </div>
 
                 {
                     blogs.map((blog) => (
-                    <div className="mb-5 w-full flex flex-col gap-5 p-4 rounded-2xl bg-slate-200 shadow-xl text-slate-800 max-h-[400px] md:text-[1.2rem]">
+                    <div key={blog._id} className="mb-5 w-full flex flex-col gap-5 p-4 rounded-2xl bg-slate-200 shadow-xl text-slate-800 max-h-[400px] md:text-[1.2rem]">
                         <h3 className="text-lg underline decoration-2 font-bold text-center">{blog.title}</h3>
                         <p className="max-h-[70%] overflow-hidden">{blog.content}</p>
                         <div className="flex gap justify-between">
