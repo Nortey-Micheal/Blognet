@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setBlogs } from "../../redux/blogs/blogSlice";
+import { setBlogs } from "../../redux/blogs/allBlogSlice";
 
 const useAllBlogs = () => {
 

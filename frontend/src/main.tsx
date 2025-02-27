@@ -11,7 +11,7 @@ import Latest from './pages/home/homeLatest.tsx'
 import Top from './pages/home/homeTop.tsx'
 import Login from './pages/user/loginPage.tsx'
 import Signup from './pages/user/signupPage.tsx'
-import Profile from './pages/profile.tsx'
+import Profile from './pages/user/profile.tsx'
 import AddBlog from './pages/blogs/addBlog.tsx'
 import Blog from './pages/blogs/blog.tsx'
 

@@ -1,10 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import userReducer from './user/userSlice.ts'
-import blogReducer from './blogs/blogSlice.ts'
+import allBlogReducer from './blogs/allBlogSlice.ts'
+import myBlogReducer  from './blogs/myBlogSlice.ts'
 
 const rootReducer = combineReducers({
     user: userReducer,
-    blogs: blogReducer
+    blogs: allBlogReducer,
+    myBlog: myBlogReducer,
 })
 
 export default rootReducer

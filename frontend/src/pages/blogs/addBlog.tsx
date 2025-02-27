@@ -10,21 +10,30 @@ export default function AddBlog() {
     const [tags,setTags] = useState<string>('')
     const [title,setTitle] = useState<string>('')
 
-    const { AddBlogs, isLoading, error} = useAddBlogs()
+    const { AddBlogs, isLoading, error, success} = useAddBlogs()
     const user = useSelector((state:StoreType) => state.user)
     const email = user?.email;
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        await AddBlogs(title,content,(email)!,tags)
-        if (error !== null) {
-            setTags('');
-            setTitle('');
-            setContent('');
-            navigate('/');
+        await AddBlogs(title, content, (email)!, tags);
+
+        if (!success ) {
+            console.log("Response from AddBlogs:", { title, content, tags, email });
+            return;
         }
+
+        console.log(success)
+
+        setTags('');
+        setTitle('');
+        setContent('');
+
+        error && console.log(error)
+        
     }
+    
     return (
         <div>
             <Navbar />
@@ -33,7 +42,12 @@ export default function AddBlog() {
                     <legend className="text-3xl text-center underline font-bold text-slate-700">Add a New Blog</legend>
                     {
                         error && (
-                            <div className="text-lg rounded-lg mt-14 px-6 py-2 bg-red-100 text-red-950">{error}</div>
+                            <div role="alert" className="alert alert-error bg-red-400 font-bold rounded-2xl mt-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-red-50 " fill="none" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span className="text-red-50">{error}</span>
+                            </div>
                         )
                     }
                     <div className="flex flex-col md:w-1/2 mx-auto mt-5 text-lg ">

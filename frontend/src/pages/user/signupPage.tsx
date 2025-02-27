@@ -38,7 +38,12 @@ export default function Signup() {
                 <p className="text-lg text-center md:text-2xl">Already having an account? Then <Link className=" hover:underline decoration-2 text-cyan-600 font-bold decoration-red-400" to={'/login'}>Log In</Link></p>
                 {
                     error && (
-                        <div className="text-lg rounded-lg mt-14 px-6 py-2 bg-red-100 text-red-950">{error}</div>
+                        <div role="alert" className="alert alert-error">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>{error}</span>
+                        </div>
                     )
                 }
             </form>

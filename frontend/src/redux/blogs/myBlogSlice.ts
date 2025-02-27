@@ -12,16 +12,16 @@ interface BlogState {
 
 const initialState: BlogState[] = [] 
 
-const blogSlice = createSlice({
+const myBlogSlice = createSlice({
     name: 'blog',
     initialState,
     reducers: {
-        setBlogs: (state:BlogState[],action:PayloadAction<BlogState[]>) => {
+        setMyBlogs: (state:BlogState[],action:PayloadAction<BlogState[]>) => {
             return action.payload
         }
     }
 })
 
-export const { setBlogs } = blogSlice.actions
+export const { setMyBlogs } = myBlogSlice.actions
 
-export default blogSlice.reducer
+export default myBlogSlice.reducer

@@ -24,7 +24,7 @@ export default function Navbar () {
     const { logout } = useLogout()
 
     return (
-        <nav className=" shadow-sm ">
+        <nav className=" shadow-sm sticky top-0 bg-slate-100">
             <div className="navbar w-[96vw] justify-between max-w-[1300px] mx-auto ">
                 {
                     !user?.email && (

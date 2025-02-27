@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setBlogs } from "../../redux/blogs/blogSlice";
+import { setMyBlogs } from "../../redux/blogs/myBlogSlice";
 
 const useMyBlogs = () => {
 
@@ -22,8 +22,6 @@ const useMyBlogs = () => {
                 headers: { "Content-type": "application/json"},
     
             })
-
-            console.log(response.status)
     
             const blogs = await response.json();
     
@@ -35,7 +33,7 @@ const useMyBlogs = () => {
             if (response.ok) {
                 setIsLoading(false)
                 setError(null)
-                dispatch(setBlogs(blogs))
+                dispatch(setMyBlogs(blogs))
             }
         } catch (error) {
             setIsLoading(false)
