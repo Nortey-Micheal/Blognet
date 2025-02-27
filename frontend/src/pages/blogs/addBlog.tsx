@@ -13,7 +13,6 @@ export default function AddBlog() {
     const { AddBlogs, isLoading, error, success} = useAddBlogs()
     const user = useSelector((state:StoreType) => state.user)
     const email = user?.email;
-    // const navigate = useNavigate()
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault()
