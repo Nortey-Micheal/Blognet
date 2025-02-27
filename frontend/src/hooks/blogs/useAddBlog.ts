@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setBlogs } from "../../redux/blogs/allBlogSlice";
 import { useNavigate } from "react-router";
 
 const useAddBlogs = () => {
@@ -8,7 +6,6 @@ const useAddBlogs = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error,setError] = useState<string | null>(null);
     const [success,setSuccess] = useState<boolean>(false)
-    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const AddBlogs = async (title:string,content:string,email:string,tags:string) => {
@@ -32,7 +29,6 @@ const useAddBlogs = () => {
             setSuccess(true)
             setIsLoading(false)
             setError(null)
-            dispatch(setBlogs(blogs))
             navigate('/')
         }
     }

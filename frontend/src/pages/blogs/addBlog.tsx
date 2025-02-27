@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar";
 import useAddBlogs from "../../hooks/blogs/useAddBlog";
 import { useSelector } from "react-redux";
 import { StoreType } from "../../redux/store";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 export default function AddBlog() {
     const [content,setContent] = useState<string>('')

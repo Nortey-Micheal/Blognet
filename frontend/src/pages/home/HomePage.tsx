@@ -34,7 +34,7 @@ function HomePage() {
           </div>
           <div>
             {
-              blogs && blogs.map((blog) => (
+              blogs.map((blog) => (
                 <Link to={`/blog/${blog._id}`} key={blog._id} className="mb-5 w-full flex flex-col gap-5 p-4 rounded-2xl bg-slate-200 shadow-xl text-slate-800 max-h-[400px] md:text-[1.2rem] hover:border-2 hover:text-cyan-700 border-cyan-300">
                   <div className="flex gap-5 items-center ">
                     <img
