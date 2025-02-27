@@ -42,8 +42,8 @@ function HomePage() {
                       className="w-15 aspect-square rounded-full"
                       src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                     <div>
-                      <p>{blog.author}</p>
-                      <p>Posted on ({formatDate(parseISO(blog.createdAt), 'do MMM')} )</p>
+                      <p className="text-lg font-bold text-slate-900">{blog.author}</p>
+                      <p className="text-sm font-medium text-slate-700">Posted on {formatDate(parseISO(blog.createdAt), 'do MMM')} </p>
                     </div>
                   </div>
                   <h3 className="text-lg underline decoration-2 font-bold text-cente">{blog.title}</h3>

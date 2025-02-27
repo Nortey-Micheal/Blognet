@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router";
 import { StoreType } from "../../redux/store";
 import Navbar from "../../components/navbar";
-import { compareAsc, formatDistanceToNow, parseISO } from "date-fns";
+import { compareAsc, formatDate, parseISO } from "date-fns";
 
 export default function Blog() {
     const _id = useParams<{_id:string}>();
@@ -26,10 +26,10 @@ export default function Blog() {
                     className="rounded-full max-w-[100px]  "
                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                         <div>
-                            <p className="font-bold text-slate-900">{user?.email}</p>
+                            <p className="font-bold text-lg text-slate-900">{user?.email}</p>
                             <div className="flex">
-                                <p className=""> Posted <span className="underline">
-                                {formatDistanceToNow(parseISO((currentBlog?.createdAt)!))} ago
+                                <p className="text-sm text-slate-700 font-medium"> Posted <span className="">
+                                {formatDate(parseISO((currentBlog?.createdAt)!), 'do MMM')}
                                 </span>
                                 </p>
                                 {
