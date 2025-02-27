@@ -16,6 +16,7 @@ const loadBlog = async (req,res) => {
 
     try {
         const blogs = await Blog.loadBlog();
+        blogs.reverse()
         res.status(200).json(blogs)
     } catch (error) {
         res.status(500).json({error: error.message})
@@ -50,6 +51,7 @@ const myBlogs = async (req,res) => {
     
     try {
         const blogs = await Blog.myBlogs(email);
+        blogs.reverse()
         res.status(200).json(blogs)
     } catch (error) {
         res.status(500).json({error: error.message})
