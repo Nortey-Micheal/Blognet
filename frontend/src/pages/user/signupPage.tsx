@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router";
-import useSignup from "../../hooks/useSignup";
+import useSignup from "../../hooks/user/useSignup";
 
 export default function Signup() {
     const [email,setEmail] = useState<string>('');

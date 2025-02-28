@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface BlogState {
+export interface BlogState {
     title: string,
     content: string,
     tags: string,
@@ -10,7 +10,7 @@ interface BlogState {
     _id: string,
 }
 
-const initialState: BlogState[] = [] 
+const initialState: BlogState[]  = [] 
 
 const myBlogSlice = createSlice({
     name: 'blog',

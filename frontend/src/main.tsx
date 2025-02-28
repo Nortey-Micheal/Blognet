@@ -14,6 +14,7 @@ import Signup from './pages/user/signupPage.tsx'
 import Profile from './pages/user/profile.tsx'
 import AddBlog from './pages/blogs/addBlog.tsx'
 import Blog from './pages/blogs/blog.tsx'
+import EditBlog from './pages/blogs/editBlog.tsx'
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
   {
     path: '/blog/:_id',
     element: <Blog />,
+    errorElement: <NoPageFound />
+  },
+  {
+    path: '/editblog/:id',
+    element: <EditBlog />,
     errorElement: <NoPageFound />
   },
 ])

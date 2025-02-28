@@ -1,17 +1,17 @@
 import { useState } from "react"
-import { setUser } from "../redux/user/userSlice";
+import { setUser } from "../../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 
-export default function useLogin() {
+export default function useSignup() {
     const [isLoading,setIsLoading] = useState<boolean>(false);
     const [error,setError] = useState<string | null>(null);
 
     const dispatch = useDispatch();
 
-    const login = async (email:string, password:string) => {
+    const signup = async (email:string,password:string) => {
         setIsLoading(true)
 
-        const response = await fetch ('http://localhost:5050/api/user/login', {
+        const response = await fetch ('http://localhost:5050/api/user/signup', {
             method: 'POST',
             headers: {
                 'Content-type' : 'application/json'
@@ -31,19 +31,19 @@ export default function useLogin() {
             setError(null)
 
             //store in localStorage
-            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('User', JSON.stringify(user));
 
             dispatch(setUser(user))
         }
 
         return user
-        
+
     }
 
     return {
         isLoading,
         error,
-        login
+        signup
     }
     
 }

@@ -3,7 +3,7 @@ import { StoreType } from "../redux/store"
 import { Link } from "react-router"
 import { useEffect } from "react"
 import { setUser } from "../redux/user/userSlice"
-import useLogout from "../hooks/useLogout"
+import useLogout from "../hooks/user/useLogout"
 
 export default function Navbar () {
 
