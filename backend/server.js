@@ -8,7 +8,7 @@ const app = express();
 const uri = process.env.ATLAS_URI || '';
 const PORT = process.env.PORT || ''
 
-app.use(cors({origin: "https://blognet-server.onrender.com"}))
+app.use(cors({origin: "https://blognet-l4bw.onrender.com"}))
 app.use(express.json())
 
 app.use('/api/blogs', blogRouter)
