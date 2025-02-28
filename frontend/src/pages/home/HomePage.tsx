@@ -6,10 +6,88 @@ import { useSelector } from "react-redux"
 import { StoreType } from "../../redux/store"
 import { formatDate,  parseISO } from "date-fns"
 
+type sideBarItemsType = {
+  name: string,
+  icon: string
+}
+
 function HomePage() {
 
   const { getAllBlogs, error, isLoading } = useAllBlogs()
   const blogs = useSelector((state:StoreType) => state.blogs)
+
+  const sideBar:sideBarItemsType[] = [
+    {
+      name: "Home",
+      icon: ""
+    },
+
+    {
+      name: "BlogNet++",
+      icon: ""
+    },
+    
+    {
+      name: "Reading List 2",
+      icon: ""
+    },
+
+    {
+      name: "Podcasts",
+      icon: ""
+    },
+
+    {
+      name: "Videos",
+      icon: ""
+    },
+
+    {
+      name: "Tags",
+      icon: ""
+    },
+
+    {
+      name: "BlogNet Help",
+      icon: ""
+    },
+
+    {
+      name: "Forem Shop",
+      icon: ""
+    },
+
+    {
+      name: "Advertise on BlogNet",
+      icon: ""
+    },
+
+    {
+      name: "BlogNet Challenges",
+      icon: ""
+    },
+
+    {
+      name: "BlogNet Showcase",
+      icon: ""
+    },
+    
+    {
+      name: "About",
+      icon: ""
+    },
+
+    {
+      name: "Contact" ,
+      icon: ""
+    } 
+
+    
+    
+    
+  ]
+
+  console.log(sideBar.length)
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -21,9 +99,17 @@ function HomePage() {
   return (
     <>
       <Navbar />
-      <div className="max-w-[1300px] mx-auto flex pt-5 gap-7 w-[87vw]">
-        <aside className="md:w-[25%] hidden md:flex border h-lvh"></aside>
-        <div className="md:w-[70%] w-[90vw] flex flex-col">
+      <div className="max-w-[1300px] mx-auto flex pt-5 gap-7 w-[96vw]">
+        <aside className="md:w-[25%] hidden md:flex flex-col h-full border-slate-200 rounded-xl shadow-lg lg:shadow-2xl ">
+          {
+            sideBar.map((content,index) => (
+              <Link className={`${((index === 0 )) ? 'pt-5 rounded-lg' : (index === (sideBar.length - 1)) ? 'pb-5 rounded-lg ' : ''} hover:bg-cyan-200 hover:underline border-0 bg-slate-20 justify-start rounded-xl font-extrabold text-slate-800 px-4 py-3  `} to={'/'}>
+                <p><span>{content.icon} </span> {content.name}</p>
+              </Link>
+            ))
+          }
+        </aside>
+        <div className="md:w-[70%] w-[100vw] flex flex-col">
           <div>
             <div className="flex gap-5 md:gap-10  md:text-xl text-slate-700">
               <NavLink to={''} className={({ isActive }) => isActive ? `font-bold` : 'font-normal'}>Relevant</NavLink>
