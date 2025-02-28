@@ -27,14 +27,14 @@ export default function Blog() {
                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                         <div>
                             <p className="font-bold text-lg text-slate-900">{user?.email}</p>
-                            <div className="flex">
-                                <p className="text-sm text-slate-700 font-medium"> Posted <span className="">
+                            <div className="flex gap-5">
+                                <p className="text-sm text-slate-700 font-medium"> Posted on <span className="">
                                 {formatDate(parseISO((currentBlog?.createdAt)!), 'do MMM')}
                                 </span>
                                 </p>
                                 {
                                     compareAsc(parseISO((currentBlog?.createdAt)!),parseISO((currentBlog?.updatedAt)!)) !== 0 
-                                    ? (<p>{currentBlog?.updatedAt}</p>) 
+                                    ? (<p className="text-sm text-slate-700 font-medium">Edited on {formatDate(parseISO(currentBlog?.updatedAt!), 'do MMM')}</p>) 
                                     : (<p className="hidden"></p>)
                                 }
                             </div>

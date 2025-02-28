@@ -48,8 +48,11 @@ export default function Profile() {
                 {
                     myBlogs.map((blog) => (
                     <div key={blog._id} className="mb-5 w-full flex flex-col gap-5 p-4 rounded-2xl bg-slate-200 shadow-xl text-slate-800 max-h-[400px] md:text-[1.2rem] hover:text-cyan-900 hover:border-3 border-cyan-600 ">
-                        <Link to={`/blog/${blog._id}`} className="text-lg underline decoration-2 font-bold text-center">{blog.title}</Link>
-                        <p className="max-h-[70%] overflow-hidden">{blog.content}</p>
+                        <Link to={`/blog/${blog._id}`} className="max-h-[70%] overflow-hidden ">
+                            <div  className="text-lg underline decoration-2 font-bold text-center">{blog.title}</div>
+                            <p className="">{blog.content}</p>
+                        </Link>
+
                         <div className="flex gap justify-between ">
                             <div className="flex gap-5">
                                 <Link onClick={() => handleClick(blog)} to={`/editblog/${blog._id}`}  className={`${( isDeleting ) ? 'btn-disabled' : ''} btn btn-soft btn-success text-cyan-700 rounded-2xl`}>Edit</Link>
