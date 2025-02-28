@@ -10,7 +10,7 @@ const useEditBlog = () => {
     const editBlog = async (_id:string,email:string,title:string,content:string) => {
         setIsLoading(true)
 
-        const response = await fetch(`http://localhost:5050/api/blogs/put/${email}/${_id}`,{
+        const response = await fetch(`https://blognet-server.onrender.com/api/blogs/put/${email}/${_id}`,{
             method: 'PUT',
             headers: {"Content-type" : "application/json"},
             body: JSON.stringify({title,content})

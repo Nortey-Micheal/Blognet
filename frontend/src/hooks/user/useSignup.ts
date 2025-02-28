@@ -11,7 +11,7 @@ export default function useSignup() {
     const signup = async (email:string,password:string) => {
         setIsLoading(true)
 
-        const response = await fetch ('http://localhost:5050/api/user/signup', {
+        const response = await fetch ('https://blognet-server.onrender.com/api/user/signup', {
             method: 'POST',
             headers: {
                 'Content-type' : 'application/json'

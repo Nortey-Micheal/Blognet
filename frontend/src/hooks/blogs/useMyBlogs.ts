@@ -17,7 +17,7 @@ const useMyBlogs = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:5050/api/blogs/myBlogs/${encodeURIComponent(email)}`, {
+            const response = await fetch(`https://blognet-server.onrender.com/api/blogs/myBlogs/${encodeURIComponent(email)}`, {
                 method: "GET",
                 headers: { "Content-type": "application/json"},
     

@@ -11,7 +11,7 @@ const useAddBlogs = () => {
     const AddBlogs = async (title:string,content:string,email:string,tags:string) => {
         setIsLoading(true)
 
-        const response = await fetch("http://localhost:5050/api/blogs/create", {
+        const response = await fetch("https://blognet-server.onrender.com/api/blogs/create", {
             method: "POST",
             headers: { "Content-type": "application/json"},
             body: JSON.stringify({title,content,tags,author:email})

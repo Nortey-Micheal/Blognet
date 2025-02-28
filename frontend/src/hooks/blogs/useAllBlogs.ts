@@ -11,7 +11,7 @@ const useAllBlogs = () => {
     const getAllBlogs = async () => {
         setIsLoading(true)
 
-        const response = await fetch("http://localhost:5050/api/blogs/load", {
+        const response = await fetch("https://blognet-server.onrender.com/api/blogs/load", {
             method: "GET",
             headers: { "Content-type": "application/json"},
 

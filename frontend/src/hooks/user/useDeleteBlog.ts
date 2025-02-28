@@ -8,7 +8,7 @@ const useDeleteBlog = () => {
 
     const deleteBlog = async (_id:string,email:string) => {
         setIsDeleting(true)
-        const response = await fetch(`http://localhost:5050/api/blogs/delete/${email}/${_id}`, {
+        const response = await fetch(`https://blognet-server.onrender.com/api/blogs/delete/${email}/${_id}`, {
             method: 'DELETE',
             headers: {"Content-type" : "application/json"}
         })
